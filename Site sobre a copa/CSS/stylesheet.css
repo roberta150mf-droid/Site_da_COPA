@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800;1,900&family=Poppins:wght@400;600;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -7,10 +8,11 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     font-size: 16px;
     background-color: #f7f9fc;
     overflow-x: hidden; 
+    color: #333;
 }
 
 #master {
@@ -35,6 +37,7 @@ body {
     flex-direction: column;
     align-items: center; 
     gap: 20px; 
+    z-index: 10;
 }
 
 .logo {
@@ -42,28 +45,23 @@ body {
     flex-direction: column;
     align-items: center;
 }
-/* --- IMAGEM DA TAÇA COM MOVIMENTO SUAVE (FLUTUAÇÃO) --- */
+
 .logo img {
     height: 90px;
     width: auto; 
     margin-bottom: 10px;
-    
-    /* Aplica um filtro de sombra suave azul clara e a animação contínua */
     filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
     animation: flutuarTaca 4s ease-in-out infinite;
 }
 
-/* --- NOVA FONTE DO TÍTULO PRINCIPAL (DINÂMICA E ESPORTIVA) --- */
 .titulo-principal {
-    font-family: 'Montserrat', sans-serif; /* Usa a fonte carregada pelo @import */
+    font-family: 'Montserrat', sans-serif;
     color: #ffffff;
-    font-size: 26px; /* Tamanho imponente de campeonato */
+    font-size: 26px; 
     font-weight: 900;
-    font-style: italic; /* O itálico traz a sensação de velocidade e movimento */
+    font-style: italic; 
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Espaçamento moderno entre as letras */
-    
-    /* Sombra projetada para dar efeito tridimensional de logo esportiva */
+    letter-spacing: 1.5px; 
     text-shadow: 2px 2px 0px #003d99, 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -74,120 +72,30 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
-/* ==========================================================================
-   ANIMAÇÕES DE MOVIMENTO (ADICIONE NO FINAL DO SEU ARQUIVO CSS)
-   ========================================================================== */
 
 @keyframes flutuarTaca {
-    0% {
+    0%, 100% {
         transform: translateY(0px);
         filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
     }
     50% {
-        transform: translateY(-6px); /* Faz a taça flutuar sutilmente para cima */
-        filter: drop-shadow(0 0 18px rgba(0, 255, 204, 0.5)); /* O brilho expande levemente */
-    }
-    100% {
-        transform: translateY(0px);
-        filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
+        transform: translateY(-6px); 
+        filter: drop-shadow(0 0 18px rgba(0, 255, 204, 0.5)); 
     }
 }
+
 /* BARRA DE MENU */
 .links-menu {
     display: flex;
-    gap: 25px; 
+    justify-content: center; 
+    align-items: center;    
+    gap: 20px;              
     background-color: rgba(255, 255, 255, 0.1); 
     padding: 10px 25px;
     border-radius: 30px;
+    width: auto;            
 }
 
-.links-menu a {
-    color: #ffffff;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.links-menu a:hover {
-    color: #00ffcc; 
-}
-/* ÁREA DOS SUBMENUS (Sem estender o topo) */
-.dropdown-container {
-    width: 100%;
-    max-width: 700px; 
-    position: relative; /* Mantém o alinhamento correto */
-    margin: 0 auto;
-}
-
-/* Caixa branca do submenu ajustada */
-.submenu-content {
-    display: none !important; 
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 16px; /* Bordas um pouco mais arredondadas e modernas */
-    margin-top: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
-    width: 100%;
-    
-    /* Transição suave ao ativar */
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Quando o JS ativa o menu */
-.submenu-content.ativo {
-    display: block !important;
-    opacity: 1;
-    transform: translateY(0);
-    animation: abrirMenu 0.3s ease forwards;
-}
-/* CARDS EM LINHA HORIZONTAL */
-.cards-paises, .cards-grupos {
-    display: flex;
-    flex-direction: row; /* Força ficar um ao lado do outro */
-    justify-content: space-between;
-    gap: 15px;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.pais-card, .grupo-card {
-    flex: 1; /* Faz todos os cards terem exatamente o mesmo tamanho */
-    background-color: #f0f4f8;
-    padding: 15px 10px;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #0052cc;
-    border-left: 4px solid #0052cc;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-/* Efeito simples e elegante ao passar o mouse nos cards */
-.pais-card:hover, .grupo-card:hover {
-    background-color: #e2e8f0;
-    transform: scale(1.02);
-}
-@keyframes abrirMenu {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-/* ==========================================================================
-   BARRA DE MENU (CONSOLIDADA E CORRIGIDA)
-   ========================================================================== */
-
-.links-menu {
-    display: flex;
-    justify-content: center; /* Centraliza todos os links horizontalmente */
-    align-items: center;     /* Alinha todos os links perfeitamente na vertical */
-    gap: 20px;               /* Espaçamento idêntico entre cada link */
-    background-color: rgba(255, 255, 255, 0.1); 
-    padding: 10px 25px;
-    border-radius: 30px;
-    width: auto;             /* Ajuste simétrico ao conteúdo */
-}
-
-/* --- CONFIGURAÇÃO PADRÃO DOS LINKS COMUNS --- */
 .links-menu a:not(.destaque-cadastro) {
     position: relative; 
     color: #ffffff;
@@ -199,7 +107,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Criando a bordinha invisível apenas para os links comuns */
 .links-menu a:not(.destaque-cadastro)::after {
     content: '';
     position: absolute;
@@ -213,7 +120,6 @@ body {
     transition: width 0.3s ease; 
 }
 
-/* --- EFEITO HOVER E ATIVO APENAS NOS LINKS COMUNS --- */
 .links-menu a:not(.destaque-cadastro):hover {
     color: #00ffcc;
 }
@@ -230,46 +136,353 @@ body {
     width: 85% !important; 
 }
 
-
-/* ==========================================================================
-   BOTÃO DE DESTAQUE (CADASTRAR) - EXATAMENTE COMO ANTES
-   ========================================================================== */
-
+/* BOTÃO CADASTRAR */
 .links-menu .destaque-cadastro {
     display: inline-block !important;
-    background-color: #00ffcc !important; /* Cor verde/ciano vibrante original */
-    color: #0052cc !important;            /* Texto em azul escuro original */
+    background-color: #00ffcc !important; 
+    color: #0052cc !important;            
     padding: 6px 18px !important;
     border-radius: 20px !important;
     font-weight: bold !important;
     font-size: 15px !important;
-    text-decoration: none !important;
     margin-left: 5px;
-    border: none !important;
     transition: background-color 0.3s ease, transform 0.2s ease !important;
 }
 
-/* Remove completamente qualquer tentativa de colocar linha embaixo do Cadastrar */
-.links-menu .destaque-cadastro::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* Hover do Cadastrar voltando a ficar branco ao passar o mouse */
 .links-menu .destaque-cadastro:hover {
     background-color: #ffffff !important;
-    color: #0052cc !important;
     transform: scale(1.05);
 }
-/* SEÇÃO DE CADASTRO */
+
+/* DROPDOWNS E SUBMENUS */
+.dropdown-container {
+    width: 100%;
+    max-width: 700px; 
+    position: relative; 
+    margin: 0 auto;
+}
+
+.submenu-content {
+    display: none !important; 
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px; 
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu-content.ativo {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+    animation: abrirMenu 0.3s ease forwards;
+}
+
+@keyframes abrirMenu {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARDS NO DROPDOWN */
+.cards-paises, .cards-grupos {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pais-card, .grupo-card {
+    flex: 1; 
+    background-color: #f0f4f8;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0052cc;
+    border-left: 4px solid #0052cc;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pais-card .bandeira {
+    width: 35px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.pais-card:hover, .grupo-card:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.04);
+}
+
+/* BLOCO GUIA DA COPA */
+.conteudo-pagina {
+    margin-top: 40px;
+}
+
+.bloco-guia {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+}
+
+.coluna-imagem {
+    flex: 1;
+    min-height: 380px;
+}
+
+.coluna-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coluna-texto {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f7f9fc 100%);
+}
+
+.titulo-medio {
+    font-size: 26px;
+    color: #0052cc;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.coluna-texto p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.btn-acao {
+    align-self: flex-start;
+    padding: 12px 24px;
+    background-color: #0052cc;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-acao:hover {
+    background-color: #003d99;
+    transform: translateY(-2px);
+}
+
+/* ESTILOS DA SEÇÃO PILARES DA COPA */
+.bloco-pilares-margem {
+    margin-bottom: 30px;
+}
+
+.grade-pilares {
+    margin-top: 20px;
+}
+
+.card-pilar {
+    padding: 25px; 
+    text-align: left;
+}
+
+.cor-pilar {
+    color: #0052cc; 
+    margin-bottom: 10px;
+}
+
+.texto-pilar {
+    font-size: 14px;
+}
+/* BLOCO DOS PAÍSES NA TELA INICIAL (ATUALIZADO) */
+.bloco-sedes-inicio {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 16px;
+    /* Linha sutil externa para destacar o bloco do fundo cinza */
+    border: 1px solid #cbd5e1; 
+    /* Sombra ligeiramente mais marcada para dar profundidade */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08); 
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.titulo-bloco {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0052cc;
+    margin-bottom: 8px;
+}
+
+.subtitulo-bloco {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.grade-bandeiras {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* QUADRADOS INTERNOS / CARDS (ATUALIZADO) */
+.item-bandeira {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    /* Borda um pouco mais escura para separar o quadrado do fundo do bloco */
+    border: 1.5px solid #bde0fe; 
+    /* Sombra interna suave para diferenciar o relevo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); 
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito visual ao passar o mouse */
+.item-bandeira:hover {
+    transform: translateY(-5px);
+    border-color: #0052cc; /* A borda acende com a cor principal no hover */
+    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.15);
+}
+
+.img-bandeira-grande {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.titulo-pequeno {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.item-bandeira p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* ESTILOS DA SEÇÃO DE CURIOSIDADES SEPARADA */
+.bloco-curiosidades {
+    margin-top: 50px; 
+    background-color: #ffffff; 
+    padding: 40px; 
+    display: block;
+}
+
+.titulo-curiosidades {
+    margin-bottom: 20px;
+}
+
+.paragrafo-curiosidades {
+    margin-bottom: 15px; 
+    font-size: 15px; 
+    color: #555; 
+    line-height: 1.6;
+}
+
+.paragrafo-curiosidades-fim {
+    margin-bottom: 25px; 
+    font-size: 15px; 
+    color: #555; 
+    line-height: 1.6;
+}
+
+.grade-estatisticas {
+    border-top: 1px solid #e2e8f0; 
+    padding-top: 20px; 
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: wrap;
+}
+
+.item-estatistica {
+    flex: 1; 
+    min-width: 200px;
+}
+
+.numero-destaque {
+    color: #0052cc; 
+    display: block; 
+    font-size: 18px; 
+    margin-bottom: 5px;
+}
+
+.legenda-estatistica {
+    font-size: 14px; 
+    color: #666;
+}
+
+/* ESTILIZAÇÃO DO MODAL DE CADASTRO */
+.fundo-modal {
+    display: none; 
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(4px); 
+    justify-content: center;
+    align-items: center;
+}
+
 .secao-cadastro {
     background-color: #ffffff;
+    width: 100%;
     max-width: 500px;
-    margin: 60px auto; /* Centraliza o formulário na página */
     padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border-top: 5px solid #0052cc;
+    position: relative;
+    animation: surgimentoModal 0.4s ease;
+}
+
+@keyframes surgimentoModal {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.botao-fechar:hover {
+    color: #333;
 }
 
 .titulo-formulario {
@@ -288,7 +501,6 @@ body {
     line-height: 1.4;
 }
 
-/* CAMPOS DO FORMULÁRIO */
 .formulario .campo {
     display: flex;
     flex-direction: column;
@@ -311,14 +523,12 @@ body {
     transition: border-color 0.3s ease;
 }
 
-/* Efeito ao clicar na caixinha de texto */
 .formulario input:focus {
     border-color: #0052cc;
     outline: none;
     background-color: #ffffff;
 }
 
-/* BOTÃO DE ENVIO */
 .btn-enviar {
     width: 100%;
     padding: 14px;
@@ -336,8 +546,76 @@ body {
 .btn-enviar:hover {
     background-color: #003d99;
 }
+
+/* BLOCO JUNTOS NA COPA */
+.bloco-juntos {
+    margin: 50px 0 20px 0;
+}
+
+.juntos-container {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    height: 350px;
+}
+
+.img-juntos {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.juntos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 82, 204, 0.85), rgba(0,0,0,0.2));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    color: #fff;
+}
+
+.titulo-grande-itálico {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.juntos-overlay p {
+    font-size: 16px;
+    max-width: 600px;
+    opacity: 0.9;
+}
+
+/* RODAPÉ */
 .rodape {
     text-align: center;
     padding: 40px 0;
     color: #aaa;
+    font-size: 14px;
+}
+
+/* RESPONSIVIDADE BÁSICA */
+@media (max-width: 768px) {
+    .bloco-guia, .grade-bandeiras {
+        flex-direction: column;
+    }
+    .cards-paises, .cards-grupos {
+        flex-direction: column;
+    }
+    .juntos-container {
+        height: 250px;
+    }
+    .juntos-overlay {
+        padding: 20px;
+    }
 }
