@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f7f9fc;
+    overflow-x: hidden; 
+}
+#master{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+#master ol{
+    list-style: none;
+}
+#master .topo {
+    background-color: #0052cc;
+    padding: 30px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px; 
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* --- IMAGEM DA TAÇA COM MOVIMENTO SUAVE (FLUTUAÇÃO) --- */
+.logo img {
+    height: 90px;
+    width: auto; 
+    margin-bottom: 10px;
+    
+    /* Aplica um filtro de sombra suave azul clara e a animação contínua */
+    filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
+    animation: flutuarTaca 4s ease-in-out infinite;
+}
+
+/* --- NOVA FONTE DO TÍTULO PRINCIPAL (DINÂMICA E ESPORTIVA) --- */
+.titulo-principal {
+    font-family: 'Montserrat', sans-serif; /* Usa a fonte carregada pelo @import */
+    color: #ffffff;
+    font-size: 26px; /* Tamanho imponente de campeonato */
+    font-weight: 900;
+    font-style: italic; /* O itálico traz a sensação de velocidade e movimento */
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Espaçamento moderno entre as letras */
+    
+    /* Sombra projetada para dar efeito tridimensional de logo esportiva */
+    text-shadow: 2px 2px 0px #003d99, 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-secao {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* ==========================================================================
+   ANIMAÇÕES DE MOVIMENTO (ADICIONE NO FINAL DO SEU ARQUIVO CSS)
+   ========================================================================== */
+
+@keyframes flutuarTaca {
+    0% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
+    }
+    50% {
+        transform: translateY(-6px); /* Faz a taça flutuar sutilmente para cima */
+        filter: drop-shadow(0 0 18px rgba(0, 255, 204, 0.5)); /* O brilho expande levemente */
+    }
+    100% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
+    }
+}
+/* BARRA DE MENU */
+.links-menu {
+    display: flex;
+    gap: 25px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px 25px;
+    border-radius: 30px;
+}
+
+.links-menu a {
+    color: #ffffff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.links-menu a:hover {
+    color: #00ffcc; 
+}
+/* ÁREA DOS SUBMENUS (Sem estender o topo) */
+.dropdown-container {
+    width: 100%;
+    max-width: 700px; 
+    position: relative; /* Mantém o alinhamento correto */
+    margin: 0 auto;
+}
+
+/* Caixa branca do submenu ajustada */
+.submenu-content {
+    display: none !important; 
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px; /* Bordas um pouco mais arredondadas e modernas */
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+    width: 100%;
+    
+    /* Transição suave ao ativar */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Quando o JS ativa o menu */
+.submenu-content.ativo {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+    animation: abrirMenu 0.3s ease forwards;
+}
+/* CARDS EM LINHA HORIZONTAL */
+.cards-paises, .cards-grupos {
+    display: flex;
+    flex-direction: row; /* Força ficar um ao lado do outro */
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pais-card, .grupo-card {
+    flex: 1; /* Faz todos os cards terem exatamente o mesmo tamanho */
+    background-color: #f0f4f8;
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0052cc;
+    border-left: 4px solid #0052cc;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Efeito simples e elegante ao passar o mouse nos cards */
+.pais-card:hover, .grupo-card:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.02);
+}
+@keyframes abrirMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ==========================================================================
+   BARRA DE MENU (CONSOLIDADA E CORRIGIDA)
+   ========================================================================== */
+
+.links-menu {
+    display: flex;
+    justify-content: center; /* Centraliza todos os links horizontalmente */
+    align-items: center;     /* Alinha todos os links perfeitamente na vertical */
+    gap: 20px;               /* Espaçamento idêntico entre cada link */
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px 25px;
+    border-radius: 30px;
+    width: auto;             /* Ajuste simétrico ao conteúdo */
+}
+
+/* --- CONFIGURAÇÃO PADRÃO DOS LINKS COMUNS --- */
+.links-menu a:not(.destaque-cadastro) {
+    position: relative; 
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    padding: 6px 12px;
+    background-color: transparent !important;
+    transition: color 0.3s ease;
+}
+
+/* Criando a bordinha invisível apenas para os links comuns */
+.links-menu a:not(.destaque-cadastro)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; 
+    left: 50%;
+    width: 0; 
+    height: 3px; 
+    background-color: #00ffcc; 
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; 
+}
+
+/* --- EFEITO HOVER E ATIVO APENAS NOS LINKS COMUNS --- */
+.links-menu a:not(.destaque-cadastro):hover {
+    color: #00ffcc;
+}
+
+.links-menu a:not(.destaque-cadastro):hover::after {
+    width: 50%;
+}
+
+.links-menu a.link-ativo:not(.destaque-cadastro) {
+    color: #00ffcc !important;
+}
+
+.links-menu a.link-ativo:not(.destaque-cadastro)::after {
+    width: 85% !important; 
+}
+
+
+/* ==========================================================================
+   BOTÃO DE DESTAQUE (CADASTRAR) - EXATAMENTE COMO ANTES
+   ========================================================================== */
+
+.links-menu .destaque-cadastro {
+    display: inline-block !important;
+    background-color: #00ffcc !important; /* Cor verde/ciano vibrante original */
+    color: #0052cc !important;            /* Texto em azul escuro original */
+    padding: 6px 18px !important;
+    border-radius: 20px !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    margin-left: 5px;
+    border: none !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+/* Remove completamente qualquer tentativa de colocar linha embaixo do Cadastrar */
+.links-menu .destaque-cadastro::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Hover do Cadastrar voltando a ficar branco ao passar o mouse */
+.links-menu .destaque-cadastro:hover {
+    background-color: #ffffff !important;
+    color: #0052cc !important;
+    transform: scale(1.05);
+}
+
+.conteudo-pagina{
+    margin: 20px;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-top: 5px solid #0052cc;
+}
+.conteudo-pagina p{
+    color:#0052cc;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+#Bandeira{
+    padding: 0px 0px 50px 0px;
+}
+#Bandeira p{
+    font-style: italic;
+    font-size: 70px;
+    font-weight: 900;
+}
+#Bandeira img{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 400px;
+    width: 800px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: 0.4s ease-in-out;
+}
+#Bandeira img:hover{
+    transform: scale(1.02);
+}
+.rodape {
+    text-align: center;
+    padding: 40px 0;
+    color: #aaa;
+}
