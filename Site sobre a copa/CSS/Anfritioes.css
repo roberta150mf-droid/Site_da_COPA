@@ -5,21 +5,20 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-
-body {
+body{
     font-family: Arial, sans-serif;
     font-size: 16px;
     background-color: #f7f9fc;
     overflow-x: hidden; 
 }
-
-#master {
+#master{
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 20px;
 }
-
-/* ESTRUTURA DO TOPO */
+#master ol{
+    list-style: none;
+}
 #master .topo {
     background-color: #0052cc;
     padding: 30px 20px;
@@ -261,80 +260,43 @@ body {
     color: #0052cc !important;
     transform: scale(1.05);
 }
-/* SEÇÃO DE CADASTRO */
-.secao-cadastro {
-    background-color: #ffffff;
-    max-width: 500px;
-    margin: 60px auto; /* Centraliza o formulário na página */
+
+.conteudo-pagina{
+    margin: 20px;
     padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border-top: 5px solid #0052cc;
 }
-
-.titulo-formulario {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333333;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.subtitulo-formulario {
-    font-size: 14px;
-    color: #666666;
-    text-align: center;
-    margin-bottom: 25px;
-    line-height: 1.4;
-}
-
-/* CAMPOS DO FORMULÁRIO */
-.formulario .campo {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 18px;
-}
-
-.formulario label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #444444;
-    margin-bottom: 6px;
-}
-
-.formulario input {
-    padding: 12px;
-    font-size: 15px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    background-color: #f9fbfd;
-    transition: border-color 0.3s ease;
-}
-
-/* Efeito ao clicar na caixinha de texto */
-.formulario input:focus {
-    border-color: #0052cc;
-    outline: none;
-    background-color: #ffffff;
-}
-
-/* BOTÃO DE ENVIO */
-.btn-enviar {
-    width: 100%;
+.conteudo-pagina p{
+    color:#0052cc;
     padding: 14px;
-    background-color: #0052cc;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
     font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-top: 10px;
+    text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
-
-.btn-enviar:hover {
-    background-color: #003d99;
+#Bandeira{
+    padding: 0px 0px 50px 0px;
+}
+#Bandeira p{
+    font-style: italic;
+    font-size: 70px;
+    font-weight: 900;
+}
+#Bandeira img{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 400px;
+    width: 800px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: 0.4s ease-in-out;
+}
+#Bandeira img:hover{
+    transform: scale(1.02);
 }
 .rodape {
     text-align: center;
