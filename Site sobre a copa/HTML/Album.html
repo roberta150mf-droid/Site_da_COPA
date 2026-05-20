@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum de Figurinhas - Copa 2026</title>
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+    <link rel="stylesheet" href="../CSS/stylesheet_album.css">
+     <script src="../JavasScript/script.js" defer></script>
+    <script src="../JavasScript/script_album.js" defer></script>
+</head>
+<body>
+    <div id="master">
+        
+        <div class="topo">
+            <div class="logo">
+                <img src="../img_taca_logo/copa-do-mundo-2026-logo4-1024x1024.jpg" alt="Logo Copa 2026">
+                <p class="titulo-principal">Copa do mundo 2026</p>
+            </div>
+            
+            <div class="links-menu">
+                <a href="Pagina-Inicial.html" id="btn-inicio">Início</a>
+                <a href="#" id="btn-locais">Locais ▾</a>
+                <a href="#" id="btn-grupos">Grupos ▾</a>
+                <a href="Album.html" id="btn-album" class="link-ativo">Álbum</a>
+                <a href="#" id="btn-cadastro" class="destaque-cadastro" onclick="abrirCadastro(event)">Cadastrar</a>
+            </div>
+
+            <div class="dropdown-container">
+                <div id="dropdown-locais" class="submenu-content">
+                    <p class="titulo-secao">Países Sedes</p>
+                    <div class="cards-paises">
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/us.png" alt="EUA" class="bandeira">
+                            <p>Estados Unidos</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/mx.png" alt="México" class="bandeira">
+                            <p>México</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/ca.png" alt="Canadá" class="bandeira">
+                            <p>Canadá</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dropdown-grupos" class="submenu-content">
+                    <p class="titulo-secao">Grupos da Copa</p>
+                    <div class="cards-grupos">
+                        <div class="grupo-card"><p>Grupo C</p></div>
+                        <div class="grupo-card"><p>Grupo F</p></div>
+                        <div class="grupo-card"><p>Grupo I</p></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="conteudo-pagina">
+            
+            <div class="cabecalho-album">
+                <p class="texto-titulo-album">ÁLBUM VIRTUAL OFICIAL</p>
+                <p class="subtitulo-album-oficial">Colecione e cole os cromos das maiores estrelas dos Grupos C, F e I.</p>
+                <div class="controles-album">
+                    <button id="btn-anterior" class="btn-paginacao">◀ Página Anterior</button>
+                    <span id="indicador-pagina" class="status-pagina">Página 1 de 2</span>
+                    <button id="btn-proximo" class="btn-paginacao">Próxima Página ▶</button>
+                </div>
+            </div>
+
+            <div class="livro-container">
+                <div class="livro-espinha"></div>
+                
+                <div class="par-paginas ativo" id="pagina-1">
+                    <div class="pagina-fisica pagina-esquerda">
+                        <div class="cabecalho-interna-grupo fundo-c">
+                            <span class="nome-grupo-letra">GRUPO C</span>
+                            <div class="paises-linha-mini">
+                                <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
+                                <img src="https://flagcdn.com/w40/ma.png" alt="Marrocos">
+                                <img src="https://flagcdn.com/w40/ht.png" alt="Haiti">
+                                <img src="https://flagcdn.com/w40/gb-sct.png" alt="Escócia">
+                            </div>
+                        </div>
+                        <div class="grade-cromos-album" id="elenco-grupo-c">
+                            </div>
+                    </div>
+
+                    <div class="pagina-fisica pagina-direita">
+                        <div class="cabecalho-interna-grupo fundo-f">
+                            <span class="nome-grupo-letra escuro">GRUPO F</span>
+                            <div class="paises-linha-mini">
+                                <img src="https://flagcdn.com/w40/nl.png" alt="Holanda">
+                                <img src="https://flagcdn.com/w40/jp.png" alt="Japão">
+                                <img src="https://flagcdn.com/w40/se.png" alt="Suécia">
+                                <img src="https://flagcdn.com/w40/tn.png" alt="Tunísia">
+                            </div>
+                        </div>
+                        <div class="grade-cromos-album" id="elenco-grupo-f">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="par-paginas" id="pagina-2">
+                    <div class="pagina-fisica pagina-esquerda">
+                        <div class="cabecalho-interna-grupo fundo-i">
+                            <span class="nome-grupo-letra">GRUPO I</span>
+                            <div class="paises-linha-mini">
+                                <img src="https://flagcdn.com/w40/fr.png" alt="França">
+                                <img src="https://flagcdn.com/w40/sn.png" alt="Senegal">
+                                <img src="https://flagcdn.com/w40/iq.png" alt="Iraque">
+                                <img src="https://flagcdn.com/w40/no.png" alt="Noruega">
+                            </div>
+                        </div>
+                        <div class="grade-cromos-album" id="elenco-grupo-i">
+                            </div>
+                    </div>
+
+                    <div class="pagina-fisica pagina-direita pagina-fundo-especial">
+                        <div class="conteudo-poster">
+                            <p class="titulo-poster">ESTATÍSTICAS DA COLEÇÃO</p>
+                            <div class="linha-separadora-poster"></div>
+                            
+                            <div class="caixa-progresso-album">
+                                <p class="rotulo-progresso">Progresso Total do Álbum</p>
+                                <div class="barra-progresso-fundo">
+                                    <div id="progresso-preenchimento" class="barra-progresso-cor"></div>
+                                </div>
+                                <p id="texto-contador-figurinhas" class="status-num-progresso">Coladas: 0 de 12 (0%)</p>
+                            </div>
+
+                            <div class="instrucoes-fidelidade">
+                                <p class="instrucao-item">⭐ Clique em qualquer espaço numerado para simular a colagem do cromo original.</p>
+                                <p class="instrucao-item">⭐ Os cromos contam com efeitos táteis tridimensionais metálicos ao passar o cursor.</p>
+                                <p class="instrucao-item">⭐ Complete as páginas para liberar o status de mestre colecionador da Copa 2026.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="modal-cadastro" class="fundo-modal" onclick="fecharCadastroExterno(event)">
+            <div class="secao-cadastro">
+                <span class="botao-fechar" onclick="fecharCadastro()">&times;</span>
+                <p class="titulo-formulario">Crie sua Conta de Torcedor</p>
+                <p class="subtitulo-formulario">Receba alertas de jogos, notícias exclusivas e monte seu álbum online!</p>
+                <form class="formulario">
+                    <div class="campo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="Crie uma senha segura" required>
+                    </div>
+                    <button type="submit" class="btn-enviar">Finalizar Cadastro</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="rodape">
+            <p>Política de privacidade | Termos de Serviço</p>
+            <p>Direitos autorais © 1994-2026 FIFA. Todos os direitos reservados.</p>
+        </div>
+
+    </div>
+</body>
+</html>
