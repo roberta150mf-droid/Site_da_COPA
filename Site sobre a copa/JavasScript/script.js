@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ==========================================
-    // FUNÇÕES DO MODAL DE CADASTRO (COLOQUE AQUI)
+    // FUNÇÕES DO MODAL DE CADASTRO
     // ==========================================
     
     // Função global para abrir a janela flutuante de cadastro
@@ -83,7 +83,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Função global para fechar ao clicar no X
     window.fecharCadastro = function() {
         const modal = document.getElementById('modal-cadastro');
-        if (modal) modal.style.display = 'none';
+        if (modal) {
+            modal.style.display = 'none';
+            limparFormularioECriticas();
+        }
     };
 
     // Função global para fechar ao clicar fora da janela (na área escura)
@@ -91,7 +94,86 @@ document.addEventListener("DOMContentLoaded", function() {
         const modal = document.getElementById('modal-cadastro');
         if (event.target === modal) {
             modal.style.display = 'none';
+            limparFormularioECriticas();
         }
     };
+
+    // ==========================================
+    // VALIDAÇÃO DO FORMULÁRIO DE CADASTRO
+    // ==========================================
+    const formulario = document.querySelector('#modal-cadastro form');
+    
+    if (formulario) {
+        // Cria dinamicamente um container para exibir mensagens de erro no topo do formulário
+        const containerErro = document.createElement('div');
+        containerErro.className = 'mensagem-erro-cadastro';
+        
+        // Estilização injetada para garantir visibilidade da crítica na tela
+        containerErro.style.color = '#e11d48';
+        containerErro.style.backgroundColor = '#ffe4e6';
+        containerErro.style.border = '1px solid #fda4af';
+        containerErro.style.padding = '12px';
+        containerErro.style.marginBottom = '15px';
+        containerErro.style.borderRadius = '8px';
+        containerErro.style.fontSize = '14px';
+        containerErro.style.display = 'none';
+        containerErro.style.fontWeight = '6px';
+        containerErro.style.lineHeight = '1.5';
+        
+        formulario.insertBefore(containerErro, formulario.firstChild);
+
+        formulario.addEventListener('submit', function(event) {
+            // Captura os campos internos do seu formulário
+            const campoNome = formulario.querySelector('input[type="text"]');
+            const campoEmail = formulario.querySelector('input[type="email"]');
+            const campoSenha = formulario.querySelector('input[type="password"]');
+            
+            let mensagens = [];
+
+            // Validação do campo Nome
+            if (campoNome && campoNome.value.trim() === "") {
+                mensagens.push("⚠️ O campo Nome é obrigatório.");
+            }
+
+            // Validação do campo E-mail
+            if (campoEmail) {
+                const emailValue = campoEmail.value.trim();
+                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailValue === "") {
+                    mensagens.push("⚠️ O campo E-mail é obrigatório.");
+                } else if (!regexEmail.test(emailValue)) {
+                    mensagens.push("⚠️ Insira um endereço de e-mail válido.");
+                }
+            }
+
+            // Validação do campo Senha
+            if (campoSenha) {
+                if (campoSenha.value.trim() === "") {
+                    mensagens.push("⚠️ O campo Senha é obrigatório.");
+                } else if (campoSenha.value.length < 6) {
+                    mensagens.push("⚠️ A senha deve conter pelo menos 6 caracteres.");
+                }
+            }
+
+            // Controle de fluxo de exibição das críticas
+            if (mensagens.length > 0) {
+                event.preventDefault(); // Bloqueia o envio incorreto do formulário
+                containerErro.innerHTML = mensagens.join('<br>');
+                containerErro.style.display = 'block'; // Exibe o container com os erros
+            } else {
+                containerErro.style.display = 'none';
+                alert("Cadastro realizado com sucesso!");
+            }
+        });
+    }
+
+    // Função auxiliar para limpar mensagens antigas quando fechar o modal
+    function limparFormularioECriticas() {
+        if (formulario) {
+            formulario.reset();
+            const boxErro = formulario.querySelector('.mensagem-erro-cadastro');
+            if (boxErro) boxErro.style.display = 'none';
+        }
+    }
 
 }); // Fim do DOMContentLoaded
