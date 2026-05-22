@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site sobre a COPA</title> 
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+    <script src="../JavasScript/script.js" defer></script>
+</head>
+
+<body>
+    <div id="master">
+        
+        <div class="topo">
+            <div class="logo">
+                <img src="../img_taca_logo/copa-do-mundo-2026-logo4-1024x1024.jpg" alt="Logo Copa 2026">
+                <p class="titulo-principal">Copa do mundo 2026</p>
+            </div>
+            
+            <div class="links-menu">
+                <a href="#" id="btn-inicio" class="link-ativo">Início</a>
+                <a href="#" id="btn-locais">Locais ▾</a>
+                <a href="#" id="btn-grupos">Grupos ▾</a>
+                <a href="Album.html" id="btn-album">Álbum</a>
+                <a href="#" id="btn-cadastro" class="destaque-cadastro" onclick="abrirCadastro(event)">Cadastrar</a>
+            </div>
+
+            <div class="dropdown-container">
+                <div id="dropdown-locais" class="submenu-content">
+                    <p class="titulo-secao">Países Sedes</p>
+                    <div class="cards-paises">
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/us.png" alt="Bandeira dos Estados Unidos" class="bandeira">
+                            <p>Estados Unidos</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/mx.png" alt="Bandeira do México" class="bandeira">
+                            <p>México</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/ca.png" alt="Bandeira do Canadá" class="bandeira">
+                            <p>Canadá</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="dropdown-grupos" class="submenu-content">
+                    <p class="titulo-secao">Grupos da Copa</p>
+                    <div class="cards-grupos">
+                        <a href="grupo-c.html" class="link-card-grupo">
+                            <div class="grupo-card"><p>Grupo C</p></div>
+                        </a>
+                        <a href="grupo-f.html" class="link-card-grupo">
+                            <div class="grupo-card"><p>Grupo F</p></div>
+                        </a>
+                        <a href="grupo-i.html" class="link-card-grupo">
+                            <div class="grupo-card"><p>Grupo I</p></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="conteudo-pagina">
+            
+            <div class="bloco-guia">
+                <div class="coluna-imagem">
+                    <img src="../img_home/guia-da-copa-do-mundo-2026-tudo-sobre-o-novo-forma0138819100202605071412-ScaleDownProportional.webp" alt="Guia da Copa do Mundo 2026">
+                </div>
+                <div class="coluna-texto">
+                    <div class="titulo-medio">O que é a Copa do Mundo e por que ela importa?</div>
+                    <p>A Copa do Mundo da FIFA é o maior evento de futebol do planeta, reunindo as melhores seleções de todos os continentes a cada quatro anos. Mais do que um torneio esportivo, ela é um phenomenon cultural que para o world, unindo nações, celebrando a diversidade e criando momentos históricos que duram para sempre.</p>
+                    <p>Em 2026, o torneio será ainda mais monumental: pela primeira vez, contará com 48 seleções disputando o tão sonhado troféu, trazendo um nível de emoção e inclusão nunca antes visto na história do esporte.</p>
+                    <a href="#" class="btn-acao" onclick="abrirCadastro(event)">Fazer Parte Dessa História</a>
+                </div>
+            </div>
+
+            <div class="bloco-sedes-inicio bloco-pilares-margem">
+                <p class="titulo-bloco">Os Pilares do Novo Formato</p>
+                <p class="subtitulo-bloco">Entenda o que torna esta edição uma das mais marcantes de todos os tempos:</p>
+                
+                <div class="grade-bandeiras grade-pilares">
+                    <div class="item-bandeira card-pilar">
+                        <div class="titulo-pequeno cor-pilar">⚽ Mais Vagas, Mais Sonhos</div>
+                        <p class="texto-pilar">A expansão para 48 seleções abriu portas para países que nunca haviam participado do torneio. Isso significa que novas culturas futebolísticas serão apresentadas ao planeta, enriquecendo a festa nas arquibancadas.</p>
+                    </div>
+                    <div class="item-bandeira card-pilar">
+                        <div class="titulo-pequeno cor-pilar">🌎 Integração Continental</div>
+                        <p class="texto-pilar">Dividir a responsabilidade entre três gigantes da América do Norte (EUA, México e Canadá) mostra o poder do futebol em derrubar fronteiras e promover a colaboração internacional em grande escala.</p>
+                    </div>
+                    <div class="item-bandeira card-pilar">
+                        <div class="titulo-pequeno cor-pilar">📈 Recordes de Audiência</div>
+                        <p class="texto-pilar">Com mais jogos na fase de grupos e uma nova fase eliminatória (dezesseis-avos de final), o torneio deve quebrar todos os recordes anteriores de público nos estádios e transmissões globais.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloco-sedes-inicio">
+                <p class="titulo-bloco">Três Nações, Um Só Destino</p>
+                <p class="subtitulo-bloco">Pela primeira vez na história, três países se unem para sediar juntos a Copa do Mundo:</p>
+                
+                <div class="grade-bandeiras">
+                    <div class="item-bandeira">
+                        <img src="https://flagcdn.com/w320/us.png" alt="EUA" class="img-bandeira-grande">
+                        <div class="titulo-pequeno">Estados Unidos</div>
+                        <p>Sediando a maior parte dos jogos e a grande final.</p>
+                    </div>
+                    <div class="item-bandeira">
+                        <img src="https://flagcdn.com/w320/mx.png" alt="México" class="img-bandeira-grande">
+                        <div class="titulo-pequeno">México</div>
+                        <p>O primeiro país a receber a Copa do Mundo pela terceira vez.</p>
+                    </div>
+                    <div class="item-bandeira">
+                        <img src="https://flagcdn.com/w320/ca.png" alt="Canadá" class="img-bandeira-grande">
+                        <div class="titulo-pequeno">Canadá</div>
+                        <p>Estreando como anfitrião do torneio masculino.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloco-guia bloco-curiosidades">
+                <div class="titulo-medio titulo-curiosidades">Você sabia? Curiosidades sobre a história das Copas</div>
+                <p class="paragrafo-curiosidades">Desde a sua primeira edição em 1930, no Uruguai, a Copa do Mundo moldou o esporte mundial. O Brasil continua sendo o maior vencedor da história do torneio, ostentando orgulhosamente suas duas estrelas no peito.</p>
+                <p class="paragrafo-curiosidades-fim">O México faz história nesta edição ao se tornar o único país do planeta a sediar jogos em três Copas diferentes (1970, 1986 e agora 2026). Enquanto isso, o Canadá expande sua tradição esportiva trazendo os jogos masculinos para suas modernas arenas pela primeira vez.</p>
+                
+                <div class="grade-estatisticas">
+                    <div class="item-estatistica">
+                        <div class="numero-destaque">104 Jogos</div>
+                        <p class="legenda-estatistica">A maior quantidade de partidas da história do torneio.</p>
+                    </div>
+                    <div class="item-estatistica">
+                        <div class="numero-destaque">16 Cidades</div>
+                        <p class="legenda-estatistica">Estádios de última geração espalhados por todo o continente.</p>
+                    </div>
+                    <div class="item-estatistica">
+                        <div class="numero-destaque">39 Days</div>
+                        <p class="legenda-estatistica">De muita emoção, festa e paixão sem limites por futebol.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="modal-cadastro" class="fundo-modal" onclick="fecharCadastroExterno(event)">
+            <div class="secao-cadastro">
+                <div class="botao-fechar" onclick="fecharCadastro()">&times;</div>
+                <p class="titulo-formulario">Crie sua Conta de Torcedor</p>
+                <p class="subtitulo-formulario">Receba alertas de jogos, notícias exclusivas e monte seu álbum online!</p>
+                
+                <form class="formulario">
+                    <div class="campo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                    
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="Crie uma senha segura" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">Finalizar Cadastro</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="bloco-juntos">
+            <div class="juntos-container">
+                <img src="../img_home/Image_Torcedores_msrcn8msrcn8msrc.png" class="img-juntos" alt="Torcedores">
+                <div class="juntos-overlay">
+                    <div class="titulo-grande-itálico">#EstamosJuntosNaCopa</div>
+                    <p>A paixão que ultrapassa fronteiras. Prepare o seu coração, porque o mundo vai vibrar junto!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rodape">
+            <p>Política de privacidade | Termos de Serviço</p>
+            <p>Direitos autorais © 1994-2026 FIFA. Todos os direitos reservados.</p>
+        </div>
+
+    </div>
+</body>
+</html>

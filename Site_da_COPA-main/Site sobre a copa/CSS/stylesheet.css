@@ -1,0 +1,1427 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800;1,900&family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px;
+    /* Degradê vibrante: do roxo-escuro profundo ao turquesa-neon elétrico */
+    background: linear-gradient(135deg, #0b031a 0%, #200b3b 40%, #00b4d8 100%);
+    background-attachment: fixed; /* Mantém o fundo estático ao rolar a página */
+    overflow-x: hidden; 
+    color: #ffffff; /* Garante leitura perfeita nos textos gerais */
+}
+#master {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+/* ESTRUTURA DO TOPO */
+#master .topo {
+    background-color: #0052cc;
+    padding: 30px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px; 
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
+    height: 90px;
+    width: auto; 
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
+    animation: flutuarTaca 4s ease-in-out infinite;
+}
+
+.titulo-principal {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 26px; 
+    font-weight: 900;
+    font-style: italic; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px; 
+    text-shadow: 2px 2px 0px #003d99, 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-secao {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@keyframes flutuarTaca {
+    0%, 100% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.2));
+    }
+    50% {
+        transform: translateY(-6px); 
+        filter: drop-shadow(0 0 18px rgba(0, 255, 204, 0.5)); 
+    }
+}
+
+/* BARRA DE MENU */
+.links-menu {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    gap: 20px;              
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px 25px;
+    border-radius: 30px;
+    width: auto;            
+}
+
+.links-menu a:not(.destaque-cadastro) {
+    position: relative; 
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    padding: 6px 12px;
+    background-color: transparent !important;
+    transition: color 0.3s ease;
+}
+
+.links-menu a:not(.destaque-cadastro)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; 
+    left: 50%;
+    width: 0; 
+    height: 3px; 
+    background-color: #00ffcc; 
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; 
+}
+
+.links-menu a:not(.destaque-cadastro):hover {
+    color: #00ffcc;
+}
+
+.links-menu a:not(.destaque-cadastro):hover::after {
+    width: 50%;
+}
+
+.links-menu a.link-ativo:not(.destaque-cadastro) {
+    color: #00ffcc !important;
+}
+
+.links-menu a.link-ativo:not(.destaque-cadastro)::after {
+    width: 85% !important; 
+}
+
+/* BOTÃO CADASTRAR */
+.links-menu .destaque-cadastro {
+    display: inline-block !important;
+    background-color: #00ffcc !important; 
+    color: #0052cc !important;            
+    padding: 6px 18px !important;
+    border-radius: 20px !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    margin-left: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+.links-menu .destaque-cadastro:hover {
+    background-color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   LINKS DOS DROPDOWNS PARA AS PÁGINAS DE GRUPOS
+   ========================================================================== */
+
+/* Remove a formatação padrão de link (cor azul e sublinhado) nos cards de grupos */
+.link-card-grupo {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
+/* Garante o comportamento visual correto ao passar o mouse */
+.link-card-grupo:hover .grupo-card {
+    background-color: #0ea5e9; /* Cor de destaque azul claro ao passar o mouse */
+    color: #ffffff;
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+
+/* DROPDOWNS E SUBMENUS */
+.dropdown-container {
+    width: 100%;
+    max-width: 700px; 
+    position: relative; 
+    margin: 0 auto;
+}
+
+.submenu-content {
+    display: none !important; 
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px; 
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu-content.ativo {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+    animation: abrirMenu 0.3s ease forwards;
+}
+
+@keyframes abrirMenu {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARDS NO DROPDOWN */
+.cards-paises, .cards-grupos {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pais-card, .grupo-card {
+    flex: 1; 
+    background-color: #f0f4f8;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0052cc;
+    border-left: 4px solid #0052cc;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pais-card .bandeira {
+    width: 35px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.pais-card:hover, .grupo-card:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.04);
+}
+
+/* BLOCO GUIA DA COPA */
+.conteudo-pagina {
+    margin-top: 40px;
+}
+
+.bloco-guia {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+}
+
+.coluna-imagem {
+    flex: 1;
+    min-height: 380px;
+}
+
+.coluna-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coluna-texto {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f7f9fc 100%);
+}
+
+.titulo-medio {
+    font-size: 26px;
+    color: #0052cc;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.coluna-texto p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.btn-acao {
+    align-self: flex-start;
+    padding: 12px 24px;
+    background-color: #0052cc;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-acao:hover {
+    background-color: #003d99;
+    transform: translateY(-2px);
+}
+
+/* ESTILOS DA SEÇÃO PILARES DA COPA */
+.bloco-pilares-margem {
+    margin-bottom: 30px;
+}
+
+.grade-pilares {
+    margin-top: 20px;
+}
+
+.card-pilar {
+    padding: 25px; 
+    text-align: left;
+}
+
+.cor-pilar {
+    color: #0052cc; 
+    margin-bottom: 10px;
+}
+
+.texto-pilar {
+    font-size: 14px;
+}
+/* BLOCO DOS PAÍSES NA TELA INICIAL (ATUALIZADO) */
+.bloco-sedes-inicio {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 16px;
+    /* Linha sutil externa para destacar o bloco do fundo cinza */
+    border: 1px solid #cbd5e1; 
+    /* Sombra ligeiramente mais marcada para dar profundidade */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08); 
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.titulo-bloco {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0052cc;
+    margin-bottom: 8px;
+}
+
+.subtitulo-bloco {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.grade-bandeiras {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* QUADRADOS INTERNOS / CARDS (ATUALIZADO) */
+.item-bandeira {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    /* Borda um pouco mais escura para separar o quadrado do fundo do bloco */
+    border: 1.5px solid #bde0fe; 
+    /* Sombra interna suave para diferenciar o relevo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); 
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito visual ao passar o mouse */
+.item-bandeira:hover {
+    transform: translateY(-5px);
+    border-color: #0052cc; /* A borda acende com a cor principal no hover */
+    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.15);
+}
+
+.img-bandeira-grande {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.titulo-pequeno {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.item-bandeira p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* ESTILOS DA SEÇÃO DE CURIOSIDADES SEPARADA */
+.bloco-curiosidades {
+    margin-top: 50px; 
+    background-color: #ffffff; 
+    padding: 40px; 
+    display: block;
+}
+
+.titulo-curiosidades {
+    margin-bottom: 20px;
+}
+
+.paragrafo-curiosidades {
+    margin-bottom: 15px; 
+    font-size: 15px; 
+    color: #555; 
+    line-height: 1.6;
+}
+
+.paragrafo-curiosidades-fim {
+    margin-bottom: 25px; 
+    font-size: 15px; 
+    color: #555; 
+    line-height: 1.6;
+}
+
+.grade-estatisticas {
+    border-top: 1px solid #e2e8f0; 
+    padding-top: 20px; 
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: wrap;
+}
+
+.item-estatistica {
+    flex: 1; 
+    min-width: 200px;
+}
+
+.numero-destaque {
+    color: #0052cc; 
+    display: block; 
+    font-size: 18px; 
+    margin-bottom: 5px;
+}
+
+.legenda-estatistica {
+    font-size: 14px; 
+    color: #666;
+}
+
+/* ESTILIZAÇÃO DO MODAL DE CADASTRO */
+.fundo-modal {
+    display: none; 
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(4px); 
+    justify-content: center;
+    align-items: center;
+}
+
+.secao-cadastro {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-top: 5px solid #0052cc;
+    position: relative;
+    animation: surgimentoModal 0.4s ease;
+}
+
+@keyframes surgimentoModal {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.botao-fechar:hover {
+    color: #333;
+}
+
+.titulo-formulario {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitulo-formulario {
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.formulario .campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.formulario label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444444;
+    margin-bottom: 6px;
+}
+
+.formulario input {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    background-color: #f9fbfd;
+    transition: border-color 0.3s ease;
+}
+
+.formulario input:focus {
+    border-color: #0052cc;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 14px;
+    background-color: #0052cc;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #003d99;
+}
+
+/* BLOCO JUNTOS NA COPA */
+.bloco-juntos {
+    margin: 50px 0 20px 0;
+}
+
+.juntos-container {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    height: 350px;
+}
+
+.img-juntos {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.juntos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 82, 204, 0.85), rgba(0,0,0,0.2));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    color: #fff;
+}
+
+.titulo-grande-itálico {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.juntos-overlay p {
+    font-size: 16px;
+    max-width: 600px;
+    opacity: 0.9;
+}
+
+/* RODAPÉ */
+.rodape {
+    text-align: center;
+    padding: 40px 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* RESPONSIVIDADE BÁSICA */
+@media (max-width: 768px) {
+    .bloco-guia, .grade-bandeiras {
+        flex-direction: column;
+    }
+    .cards-paises, .cards-grupos {
+        flex-direction: column;
+    }
+    .juntos-container {
+        height: 250px;
+    }
+    .juntos-overlay {
+        padding: 20px;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   ESTILOS DEDICADOS: ÁLBUM DIGITAL ESTILO LIVRO FÍSICO (SEM TAGS H)
+   ========================================================================== */
+
+.cabecalho-album {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #cbd5e1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.texto-titulo-album {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+    color: #0052cc;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.subtitulo-album-oficial {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* CONTROLES DE PAGINAÇÃO */
+.controles-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-paginacao {
+    background-color: #0052cc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-paginacao:hover {
+    background-color: #003d99;
+    transform: scale(1.03);
+}
+
+.status-pagina {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1e293b;
+    background: #f1f5f9;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+/* CONTAINER SIMULAÇÃO LIVRO */
+.livro-container {
+    display: flex;
+    position: relative;
+    background-color: #e2e8f0;
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border: 8px solid #0f172a; /* Capa dura exterior aparecendo */
+    min-height: 680px;
+    overflow: hidden;
+}
+
+/* ESPINHA CENTRAL DO LIVRO */
+.livro-espinha {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15) 100%);
+    z-index: 5;
+    box-shadow: inset 1px 0 3px rgba(255,255,255,0.1), inset -1px 0 3px rgba(255,255,255,0.1);
+}
+
+/* LÓGICA DE EXIBIÇÃO DE PÁGINAS */
+.par-paginas {
+    display: none;
+    width: 100%;
+    gap: 10px;
+}
+
+.par-paginas.ativo {
+    display: flex;
+}
+
+/* PÁGINAS FÍSICAS INDIVIDUAIS */
+.pagina-fisica {
+    flex: 1;
+    background-color: #faf9f5; /* Tom de papel jornal/álbum clássico */
+    background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 0);
+    background-size: 16px 16px;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+}
+
+.pagina-esquerda {
+    box-shadow: inset -15px 0 20px rgba(0,0,0,0.04), 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.pagina-direita {
+    box-shadow: inset 15px 0 20px rgba(0,0,0,0.04), -2px 0 5px rgba(0,0,0,0.05);
+}
+
+/* CABEÇALHOS DAS PÁGINAS DO ÁLBUM */
+.cabecalho-interna-grupo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.nome-grupo-letra {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.nome-grupo-letra.escuro { color: #1e293b; }
+
+.fundo-c { background: linear-gradient(90deg, #ff9f1c, #ffbf69); }
+.fundo-f { background: linear-gradient(90deg, #ccff00, #9ef01a); }
+.fundo-i { background: linear-gradient(90deg, #9b5de5, #f15bb5); }
+
+.paises-linha-mini img {
+    width: 26px;
+    height: 18px;
+    object-fit: cover;
+    margin-left: 5px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* SQUAD GRIDS CONTIDOS */
+.grade-cromos-album {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* CARDS DO CROMO (SIMULAÇÃO ORIGINAL SLOTS) */
+.quadrado-slot-cromo {
+    background-color: #e2e8f0;
+    border: 2px dashed #94a3b8;
+    border-radius: 10px;
+    padding: 10px;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.quadrado-slot-cromo:hover {
+    border-color: #0052cc;
+    background-color: #cbd5e1;
+    transform: scale(1.02);
+}
+
+/* Estado Padrão: Elementos Escondidos Antes de Colar */
+.quadrado-slot-cromo .corpo-cromo {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+/* Número Traseiro Indicador do Cromo no Álbum */
+.quadrado-slot-cromo .numero-vazio-album {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #94a3b8;
+    opacity: 0.6;
+}
+
+/* IMAGEM DO ATLETA */
+.quadrado-slot-cromo .moldura-foto {
+    position: relative;
+    width: 100%;
+    height: 1%;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.quadrado-slot-cromo img.foto-jogador-cromo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quadrado-slot-cromo .mini-bandeira-cromo {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* TEXTOS DA FIGURINHA */
+.quadrado-slot-cromo .dados-texto-cromo {
+    text-align: center;
+    padding-top: 6px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quadrado-slot-cromo .nome-jogador-cromo {
+    font-size: 13px;
+    font-weight: bold;
+    color: #0f172a;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quadrado-slot-cromo .pais-jogador-cromo {
+    font-size: 10px;
+    font-weight: 600;
+    color: #0052cc;
+    text-transform: uppercase;
+}
+
+/* ESTADO ATIVO: FIGURINHA COLADA COM SUCESSO */
+.quadrado-slot-cromo.colada {
+    background-color: #ffffff;
+    border: 2px solid #ffd700; /* Borda dourada de cromo colecionável */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1), inset 0 0 20px rgba(255,215,0,0.05);
+    animation: estaloColagem 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.quadrado-slot-cromo.colada:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.quadrado-slot-cromo.colada .numero-vazio-album {
+    display: none;
+}
+
+.quadrado-slot-cromo.colada .corpo-cromo {
+    display: flex;
+}
+
+/* Adiciona efeito de brilho reflexivo de papel laminado */
+.quadrado-slot-cromo.colada::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: none;
+}
+
+.quadrado-slot-cromo.colada:hover::after {
+    left: 150%;
+    transition: left 0.6s ease-in-out;
+}
+
+@keyframes estaloColagem {
+    0% { transform: scale(1.2); filter: brightness(1.4); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* PÁGINA DE TRÁS: CHECKLIST / POSTER CURIOSIDADES */
+.pagina-fundo-especial {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+}
+
+.conteudo-poster {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+.titulo-poster {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: #0f172a;
+    text-align: center;
+}
+
+.linha-separadora-poster {
+    height: 4px;
+    width: 60px;
+    background-color: #0052cc;
+    margin: 15px auto 30px auto;
+    border-radius: 2px;
+}
+
+.caixa-progresso-album {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+}
+
+.rotulo-progresso {
+    font-size: 13px;
+    font-weight: bold;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.barra-progresso-fundo {
+    background-color: #e2e8f0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.barra-progresso-cor {
+    background: linear-gradient(90deg, #0052cc, #00ffcc);
+    width: 0%;
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+.status-num-progresso {
+    font-size: 12px;
+    font-weight: bold;
+    color: #0052cc;
+    text-align: right;
+}
+
+.instrucoes-fidelidade {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.instrucao-item {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* RESPONSIVIDADE DO ÁLBUM */
+@media (max-width: 992px) {
+    .livro-container { flex-direction: column; min-height: auto; }
+    .par-paginas.ativo { flex-direction: column; }
+    .livro-espinha { display: none; }
+    .pagina-esquerda, .pagina-direita { box-shadow: none; margin-bottom: 15px; }
+}
+
+/* ==========================================================================
+   ESTILOS DEDICADOS: ÁLBUM DIGITAL ESTILO LIVRO FÍSICO (SEM TAGS H)
+   ========================================================================== */
+
+.cabecalho-album {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #cbd5e1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.texto-titulo-album {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+    color: #0052cc;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.subtitulo-album-oficial {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* CONTROLES DE PAGINAÇÃO */
+.controles-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-paginacao {
+    background-color: #0052cc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-paginacao:hover {
+    background-color: #003d99;
+    transform: scale(1.03);
+}
+
+.status-pagina {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1e293b;
+    background: #f1f5f9;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+/* CONTAINER SIMULAÇÃO LIVRO */
+.livro-container {
+    display: flex;
+    position: relative;
+    background-color: #e2e8f0;
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border: 8px solid #0f172a; /* Capa dura exterior aparecendo */
+    min-height: 680px;
+    overflow: hidden;
+}
+
+/* ESPINHA CENTRAL DO LIVRO */
+.livro-espinha {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15) 100%);
+    z-index: 5;
+    box-shadow: inset 1px 0 3px rgba(255,255,255,0.1), inset -1px 0 3px rgba(255,255,255,0.1);
+}
+
+/* LÓGICA DE EXIBIÇÃO DE PÁGINAS */
+.par-paginas {
+    display: none;
+    width: 100%;
+    gap: 10px;
+}
+
+.par-paginas.ativo {
+    display: flex;
+}
+
+/* PÁGINAS FÍSICAS INDIVIDUAIS */
+.pagina-fisica {
+    flex: 1;
+    background-color: #faf9f5; /* Tom de papel jornal/álbum clássico */
+    background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 0);
+    background-size: 16px 16px;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+}
+
+.pagina-esquerda {
+    box-shadow: inset -15px 0 20px rgba(0,0,0,0.04), 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.pagina-direita {
+    box-shadow: inset 15px 0 20px rgba(0,0,0,0.04), -2px 0 5px rgba(0,0,0,0.05);
+}
+
+/* CABEÇALHOS DAS PÁGINAS DO ÁLBUM */
+.cabecalho-interna-grupo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.nome-grupo-letra {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.nome-grupo-letra.escuro { color: #1e293b; }
+
+.fundo-c { background: linear-gradient(90deg, #ff9f1c, #ffbf69); }
+.fundo-f { background: linear-gradient(90deg, #ccff00, #9ef01a); }
+.fundo-i { background: linear-gradient(90deg, #9b5de5, #f15bb5); }
+
+.paises-linha-mini img {
+    width: 26px;
+    height: 18px;
+    object-fit: cover;
+    margin-left: 5px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* SQUAD GRIDS CONTIDOS */
+.grade-cromos-album {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* CARDS DO CROMO (SIMULAÇÃO ORIGINAL SLOTS) */
+.quadrado-slot-cromo {
+    background-color: #e2e8f0;
+    border: 2px dashed #94a3b8;
+    border-radius: 10px;
+    padding: 10px;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.quadrado-slot-cromo:hover {
+    border-color: #0052cc;
+    background-color: #cbd5e1;
+    transform: scale(1.02);
+}
+
+/* Estado Padrão: Elementos Escondidos Antes de Colar */
+.quadrado-slot-cromo .corpo-cromo {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+/* Número Traseiro Indicador do Cromo no Álbum */
+.quadrado-slot-cromo .numero-vazio-album {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #94a3b8;
+    opacity: 0.6;
+}
+
+/* IMAGEM DO ATLETA */
+.quadrado-slot-cromo .moldura-foto {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.quadrado-slot-cromo img.foto-jogador-cromo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quadrado-slot-cromo .mini-bandeira-cromo {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* TEXTOS DA FIGURINHA */
+.quadrado-slot-cromo .dados-texto-cromo {
+    text-align: center;
+    padding-top: 6px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quadrado-slot-cromo .nome-jogador-cromo {
+    font-size: 13px;
+    font-weight: bold;
+    color: #0f172a;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quadrado-slot-cromo .pais-jogador-cromo {
+    font-size: 10px;
+    font-weight: 600;
+    color: #0052cc;
+    text-transform: uppercase;
+}
+
+/* ESTADO ATIVO: FIGURINHA COLADA COM SUCESSO */
+.quadrado-slot-cromo.colada {
+    background-color: #ffffff;
+    border: 2px solid #ffd700; /* Borda dourada de cromo colecionável */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1), inset 0 0 20px rgba(255,215,0,0.05);
+    animation: estaloColagem 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.quadrado-slot-cromo.colada:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.quadrado-slot-cromo.colada .numero-vazio-album {
+    display: none;
+}
+
+.quadrado-slot-cromo.colada .corpo-cromo {
+    display: flex;
+}
+
+/* Adiciona efeito de brilho reflexivo de papel laminado */
+.quadrado-slot-cromo.colada::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: none;
+}
+
+.quadrado-slot-cromo.colada:hover::after {
+    left: 150%;
+    transition: left 0.6s ease-in-out;
+}
+
+@keyframes estaloColagem {
+    0% { transform: scale(1.2); filter: brightness(1.4); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* PÁGINA DE TRÁS: CHECKLIST / POSTER CURIOSIDADES */
+.pagina-fundo-especial {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+}
+
+.conteudo-poster {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+.titulo-poster {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: #0f172a;
+    text-align: center;
+}
+
+.linha-separadora-poster {
+    height: 4px;
+    width: 60px;
+    background-color: #0052cc;
+    margin: 15px auto 30px auto;
+    border-radius: 2px;
+}
+
+.caixa-progresso-album {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+}
+
+.rotulo-progresso {
+    font-size: 13px;
+    font-weight: bold;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.barra-progresso-fundo {
+    background-color: #e2e8f0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.barra-progresso-cor {
+    background: linear-gradient(90deg, #0052cc, #00ffcc);
+    width: 0%;
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+.status-num-progresso {
+    font-size: 12px;
+    font-weight: bold;
+    color: #0052cc;
+    text-align: right;
+}
+
+.instrucoes-fidelidade {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.instrucao-item {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* RESPONSIVIDADE DO ÁLBUM */
+@media (max-width: 992px) {
+    .livro-container { flex-direction: column; min-height: auto; }
+    .par-paginas.ativo { flex-direction: column; }
+    .livro-espinha { display: none; }
+    .pagina-esquerda, .pagina-direita { box-shadow: none; margin-bottom: 15px; }
+}
