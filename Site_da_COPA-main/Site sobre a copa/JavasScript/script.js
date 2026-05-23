@@ -1,4 +1,4 @@
-// Aguarda o HTML carregar completamente
+// Aguarda o HTML carregar completamente para configurar o Menu Dropdown
 document.addEventListener("DOMContentLoaded", function() {
 
     // 1. Seleciona todos os links do menu e os blocos de conteúdo
@@ -70,40 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ==========================================
-    // FUNÇÕES DO MODAL DE CADASTRO
-    // ==========================================
-    
-    // Função global para abrir a janela flutuante de cadastro
-    window.abrirCadastro = function(event) {
-        event.preventDefault(); 
-        const modal = document.getElementById('modal-cadastro');
-        if (modal) modal.style.display = 'flex';
-    };
-
-    // Função global para fechar ao clicar no X
-    window.fecharCadastro = function() {
-        const modal = document.getElementById('modal-cadastro');
-        if (modal) {
-            modal.style.display = 'none';
-            limparFormularioECriticas();
-        }
-    };
-
-    // Função global para fechar ao clicar fora da janela (na área escura)
-    window.fecharCadastroExterno = function(event) {
-        const modal = document.getElementById('modal-cadastro');
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            limparFormularioECriticas();
-        }
-    };
-
-    // ==========================================
     // VALIDAÇÃO DO FORMULÁRIO DE CADASTRO
     // ==========================================
-    const formulario = document.querySelector('#modal-cadastro form');
+    const formularioCadastro = document.querySelector('#modal-cadastro form');
     
-    if (formulario) {
+    if (formularioCadastro) {
         // Cria dinamicamente um container para exibir mensagens de erro no topo do formulário
         const containerErro = document.createElement('div');
         containerErro.className = 'mensagem-erro-cadastro';
@@ -118,12 +89,12 @@ document.addEventListener("DOMContentLoaded", function() {
         containerErro.style.display = 'none';
         containerErro.style.lineHeight = '1.5';
         
-        formulario.insertBefore(containerErro, formulario.firstChild);
+        formularioCadastro.insertBefore(containerErro, formularioCadastro.firstChild);
 
-        formulario.addEventListener('submit', function(event) {
-            const campoNome = formulario.querySelector('input[type="text"]');
-            const campoEmail = formulario.querySelector('input[type="email"]');
-            const campoSenha = formulario.querySelector('input[type="password"]');
+        formularioCadastro.addEventListener('submit', function(event) {
+            const campoNome = formularioCadastro.querySelector('input[type="text"]');
+            const campoEmail = formularioCadastro.querySelector('input[type="email"]');
+            const campoSenha = formularioCadastro.querySelector('input[type="password"]');
             
             let mensagens = [];
 
@@ -163,14 +134,113 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+}); // <--- FECHAMENTO CORRETO DO DOMCONTENTLOADED AQUI!
 
-    // Função auxiliar para limpar mensagens antigas quando fechar o modal
-    function limparFormularioECriticas() {
-        if (formulario) {
-            formulario.reset();
-            const boxErro = formulario.querySelector('.mensagem-erro-cadastro');
-            if (boxErro) boxErro.style.display = 'none';
+// ==========================================================================
+// PROCESSO DE VALIDAÇÃO DO QUIZ (ESCOPO GLOBAL - ACESSÍVEL PELO ONCLICK)
+// ==========================================================================
+
+function verificarQuiz() {
+    // Gabarito oficial do teste
+    const gabarito = { 
+        p1: 'C', p2: 'B', p3: 'B', p4: 'B', p5: 'C', 
+        p6: 'B', p7: 'B', p8: 'A', p9: 'A', p10: 'B' 
+    };
+    
+    let totalAcertos = 0;
+    const formulario = document.getElementById('form-quiz');
+    const caixaResultado = document.getElementById('resultado-bloco');
+    
+    // Validação para garantir que os elementos existem na página antes de executar
+    if (!formulario) {
+        console.error("Erro: O formulário com id='form-quiz' não foi encontrado.");
+        return;
+    }
+    if (!caixaResultado) {
+        console.error("Erro: A div de resultado com id='resultado-bloco' não foi encontrada.");
+        return;
+    }
+    
+    // Varre o gabarito computando os acertos (ignora as perguntas vazias sem quebrar o código)
+    for (let ref in gabarito) {
+        const marcada = formulario.querySelector(`input[name="${ref}"]:checked`);
+        if (marcada) {
+            if (marcada.value === gabarito[ref]) {
+                totalAcertos++;
+            }
         }
     }
+    
+    // Define os títulos e textos baseados nos acertos
+    let nivelTitulo = "";
+    let nivelDescricao = "";
+    
+    if (totalAcertos <= 3) {
+        nivelTitulo = "Novato de Arquibancada ⚽";
+        nivelDescricao = "Você ainda está começando a sua jornada no futebol! Conhece o básico, e a Copa de 2026 será a oportunidade perfeita para você aprender muito mais.";
+    } else if (totalAcertos <= 6) {
+        nivelTitulo = "Torcedor Casual 🏟️";
+        nivelDescricao = "Bom nível! Você conhece bem as regras e acompanha os grandes eventos do esporte sem nenhuma dificuldade.";
+    } else if (totalAcertos <= 8) {
+        nivelTitulo = "Fanático por Futebol 🌟";
+        nivelDescricao = "Excelente pontuação! Você se lembra de dados históricos e está mais do que pronto para dar palpites certeiros na próxima Copa do Mundo.";
+    } else {
+        nivelTitulo = "Diretor Esportivo / Enciclopédia Viva 🏆";
+        nivelDescricao = "Impressionante! Você domina recordes antigos e detalhes minuciosos que a maioria das pessoas desconhece. Um verdadeiro mestre do futebol!";
+    }
+    
+    // Monta o HTML do resultado injetando os dados de forma legível
+    caixaResultado.innerHTML = `
+        <p style="font-size: 20px; font-weight: bold; margin-bottom: 10px; color: #ffffff;">Você acertou ${totalAcertos} de 10 perguntas!</p>
+        <p style="margin-bottom: 5px; font-weight: normal; opacity: 0.85; color: #ffffff;">Seu nível de conhecimento é:</p>
+        <div class="titulo-nivel-badge" style="display: inline-block; background-color: #00ffcc; color: #0052cc; padding: 8px 20px; border-radius: 20px; font-size: 16px; margin: 15px 0; font-weight: 900; text-transform: uppercase;">
+            ${nivelTitulo}
+        </div>
+        <p style="font-weight: normal; font-size: 14px; margin-top: 15px; line-height: 1.5; opacity: 0.95; color: #ffffff;">${nivelDescricao}</p>
+    `;
+    
+    // Força a exibição do bloco mudando o 'none' para 'block'
+    caixaResultado.style.display = 'block';
+    
+    // Rola a tela suavemente até o resultado obtido
+    caixaResultado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
 
-});
+// ==========================================
+// FUNÇÕES DO MODAL DE CADASTRO (ESCOPO GLOBAL)
+// ==========================================
+
+// Função global para abrir a janela flutuante de cadastro
+window.abrirCadastro = function(event) {
+    event.preventDefault(); 
+    const modal = document.getElementById('modal-cadastro');
+    if (modal) modal.style.display = 'flex';
+};
+
+// Função global para fechar ao clicar no X
+window.fecharCadastro = function() {
+    const modal = document.getElementById('modal-cadastro');
+    if (modal) {
+        modal.style.display = 'none';
+        limparFormularioECriticas();
+    }
+};
+
+// Função global para fechar ao clicar fora da janela (na área escura)
+window.fecharCadastroExterno = function(event) {
+    const modal = document.getElementById('modal-cadastro');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        limparFormularioECriticas();
+    }
+};
+
+// Função auxiliar para limpar mensagens antigas quando fechar o modal
+function limparFormularioECriticas() {
+    const formularioCadastro = document.querySelector('#modal-cadastro form');
+    if (formularioCadastro) {
+        formularioCadastro.reset();
+        const boxErro = formularioCadastro.querySelector('.mensagem-erro-cadastro');
+        if (boxErro) boxErro.style.display = 'none';
+    }
+}
