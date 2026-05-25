@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz da Copa - Copa 2026</title> 
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+    <script src="../JavasScript/script.js" defer></script>
+</head>
+<body>
+    <div id="master">
+        
+        <div class="topo">
+            <div class="logo">
+                <img src="../img_taca_logo/copa-do-mundo-2026-logo4-1024x1024.jpg" alt="Logo Copa 2026">
+                <p class="titulo-principal">Copa do mundo 2026</p>
+            </div>
+            
+            <div class="links-menu">
+                <a href="Pagina-Inicial.html" id="btn-inicio">Início</a>
+                <a href="#" id="btn-locais">Locais ▾</a>
+                <a href="#" id="btn-grupos">Grupos ▾</a>
+                <a href="Album.html" id="btn-album">Álbum</a>
+                <a href="Quiz.html" id="btn-quiz" class="link-ativo">Quiz</a>
+                <a href="#" id="btn-cadastro" class="destaque-cadastro" onclick="abrirCadastro(event)">Cadastrar</a>
+            </div>
+
+            <div class="dropdown-container">
+                <div id="dropdown-locais" class="submenu-content">
+                    <p class="titulo-secao">Países Sedes</p>
+                    <div class="cards-paises">
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/us.png" alt="Estados Unidos" class="bandeira">
+                            <p>Estados Unidos</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/mx.png" alt="México" class="bandeira">
+                            <p>México</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/ca.png" alt="Canadá" class="bandeira">
+                            <p>Canadá</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dropdown-grupos" class="submenu-content">
+                    <p class="titulo-secao">Grupos da Copa</p>
+                    <div class="cards-grupos">
+                        <a href="grupo-c.html" class="link-card-grupo"><div class="grupo-card"><p>Grupo C</p></div></a>
+                        <a href="grupo-f.html" class="link-card-grupo"><div class="grupo-card"><p>Grupo F</p></div></a>
+                        <a href="grupo-i.html" class="link-card-grupo"><div class="grupo-card"><p>Grupo I</p></div></a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="conteudo-pagina">
+            <div class="container-quiz">
+                
+                <div class="cabecalho-album margem-quiz">
+                    <p class="texto-titulo-album">TESTE OS SEUS CONHECIMENTOS</p>
+                    <p class="subtitulo-album-oficial">Responda às 10 perguntas e descubra o seu nível de compreensão sobre futebol!</p>
+                </div>
+
+                <form id="form-quiz">
+                    
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel basico">Nível Básico</p>
+                        <p class="titulo-bloco alinhado-esquerda">1. Quantos jogadores de cada equipe entram em campo no início de uma partida oficial?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p1" value="A"> A) 7 jogadores</label>
+                            <label class="opcao-item"><input type="radio" name="p1" value="B"> B) 10 jogadores</label>
+                            <label class="opcao-item"><input type="radio" name="p1" value="C"> C) 11 jogadores</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel basico">Nível Básico</p>
+                        <p class="titulo-bloco alinhado-esquerda">2. De quanto em quanto tempo (em anos) se realiza uma Copa do Mundo da FIFA?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p2" value="A"> A) De 2 em 2 anos</label>
+                            <label class="opcao-item"><input type="radio" name="p2" value="B"> B) De 4 em 4 anos</label>
+                            <label class="opcao-item"><input type="radio" name="p2" value="C"> C) De 5 em 5 anos</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel basico">Nível Básico</p>
+                        <p class="titulo-bloco alinhado-esquerda">3. Qual é a duração oficial de uma partida de futebol regular (sem prolongamento)?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p3" value="A"> A) 80 minutos</label>
+                            <label class="opcao-item"><input type="radio" name="p3" value="B"> B) 90 minutos</label>
+                            <label class="opcao-item"><input type="radio" name="p3" value="C"> C) 100 minutos</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel intermedio">Nível Intermédio</p>
+                        <p class="titulo-bloco alinhado-esquerda">4. Quantas seleções masculinas vão disputar a fase final da Copa do Mundo de 2026?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p4" value="A"> A) 32 seleções</label>
+                            <label class="opcao-item"><input type="radio" name="p4" value="B"> B) 48 seleções</label>
+                            <label class="opcao-item"><input type="radio" name="p4" value="C"> C) 64 seleções</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel intermedio">Nível Intermédio</p>
+                        <p class="titulo-bloco alinhado-esquerda">5. Qual destas seleções é a maior vencedora da história das Copas do Mundo (masculina)?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p5" value="A"> A) Alemanha</label>
+                            <label class="opcao-item"><input type="radio" name="p5" value="B"> B) Itália</label>
+                            <label class="opcao-item"><input type="radio" name="p5" value="C"> C) Brasil</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel intermedio">Nível Intermédio</p>
+                        <p class="titulo-bloco alinhado-esquerda">6. Que país vai receber a Copa do Mundo de 2026 pela terceira vez na sua história?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p6" value="A"> A) Estados Unidos</label>
+                            <label class="opcao-item"><input type="radio" name="p6" value="B"> B) México</label>
+                            <label class="opcao-item"><input type="radio" name="p6" value="C"> C) Canadá</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel intermedio">Nível Intermédio</p>
+                        <p class="titulo-bloco alinhado-esquerda">7. Quem foi eleito o melhor jogador do torneio na última Copa do Mundo (Catar 2022)?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p7" value="A"> A) Kylian Mbappé</label>
+                            <label class="opcao-item"><input type="radio" name="p7" value="B"> B) Lionel Messi</label>
+                            <label class="opcao-item"><input type="radio" name="p7" value="C"> C) Luka Modrić</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel avancado">Nível Avançado</p>
+                        <p class="titulo-bloco alinhado-esquerda">8. Quem é o maior marcador de SEMPRE da história das Copas do Mundo masculinas?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p8" value="A"> A) Miroslav Klose (Alemanha)</label>
+                            <label class="opcao-item"><input type="radio" name="p8" value="B"> B) Ronaldo Nazário (Brasil)</label>
+                            <label class="opcao-item"><input type="radio" name="p8" value="C"> C) Pelé (Brasil)</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel avancado">Nível Avançado</p>
+                        <p class="titulo-bloco alinhado-esquerda">9. Em que edição da Copa do Mundo foi utilizado o sistema de Cartões (Amarelo e Vermelho) pela primeira vez?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p9" value="A"> A) México 1970</label>
+                            <label class="opcao-item"><input type="radio" name="p9" value="B"> B) Alemanha 1974</label>
+                            <label class="opcao-item"><input type="radio" name="p9" value="C"> C) Inglaterra 1966</label>
+                        </div>
+                    </div>
+
+                    <div class="bloco-sedes-inicio">
+                        <p class="etiqueta-nivel avancado">Nível Avançado</p>
+                        <p class="titulo-bloco alinhado-esquerda">10. Qual destas seleções NUNCA perdeu uma final de Copa do Mundo das vezes que lá chegou?</p>
+                        <div class="opcoes-grupo">
+                            <label class="opcao-item"><input type="radio" name="p10" value="A"> A) Argentina</label>
+                            <label class="opcao-item"><input type="radio" name="p10" value="B"> B) Espanha</label>
+                            <label class="opcao-item"><input type="radio" name="p10" value="C"> C) França</label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-enviar tamanho-quiz" onclick="verificarQuiz()">Verificar o meu Nível</button>
+                </form>
+
+                <div id="resultado-bloco" class="caixa-resultado"></div>
+            </div>
+        </div>
+
+        <div id="modal-cadastro" class="fundo-modal" onclick="fecharCadastroExterno(event)">
+            <div class="secao-cadastro">
+                <div class="botao-fechar" onclick="fecharCadastro()">&times;</div>
+                <p class="titulo-formulario">Crie sua Conta de Torcedor</p>
+                <p class="subtitulo-formulario">Receba alertas de jogos, notícias exclusives e monte seu álbum online!</p>
+                <form class="formulario">
+                    <div class="campo"><label for="nome">Nome Completo</label><input type="text" id="nome" placeholder="Digite seu nome completo" required></div>
+                    <div class="campo"><label for="email">E-mail</label><input type="email" id="email" placeholder="Seu melhor e-mail" required></div>
+                    <div class="campo"><label for="senha">Senha</label><input type="password" id="senha" placeholder="Crie uma senha segura" required></div>
+                    <button type="submit" class="btn-enviar">Finalizar Cadastro</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="rodape">
+            <p>Política de privacidade | Termos de Serviço</p>
+            <p>Direitos autorais © 1994-2026 FIFA. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

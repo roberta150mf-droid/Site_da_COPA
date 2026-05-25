@@ -23,6 +23,7 @@
                 <a href="#" id="btn-locais">Locais ▾</a>
                 <a href="#" id="btn-grupos">Grupos ▾</a>
                 <a href="Album.html" id="btn-album" class="link-ativo">Álbum</a>
+                <a href="Quiz.html" id="btn-quiz">Quiz</a>
                 <a href="#" id="btn-cadastro" class="destaque-cadastro" onclick="abrirCadastro(event)">Cadastrar</a>
             </div>
 
@@ -46,13 +47,19 @@
                 </div>
 
                 <div id="dropdown-grupos" class="submenu-content">
-                    <p class="titulo-secao">Grupos da Copa</p>
-                    <div class="cards-grupos">
+                <p class="titulo-secao">Grupos da Copa</p>
+                <div class="cards-grupos">
+                    <a href="grupo-c.html" class="link-card-grupo">
                         <div class="grupo-card"><p>Grupo C</p></div>
+                    </a>
+                    <a href="grupo-f.html" class="link-card-grupo">
                         <div class="grupo-card"><p>Grupo F</p></div>
+                    </a>
+                    <a href="grupo-i.html" class="link-card-grupo">
                         <div class="grupo-card"><p>Grupo I</p></div>
-                    </div>
+                    </a>
                 </div>
+            </div>
             </div>
         </div> 
 
@@ -63,7 +70,7 @@
                 <p class="subtitulo-album-oficial">Colecione e cole os cromos das maiores estrelas dos Grupos C, F e I.</p>
                 <div class="controles-album">
                     <button id="btn-anterior" class="btn-paginacao">◀ Página Anterior</button>
-                    <span id="indicador-pagina" class="status-pagina">Página 1 de 2</span> <!--Retirar a tag SPAN-->
+                    <div id="indicador-pagina" class="status-pagina">Página 1 de 2</div>
                     <button id="btn-proximo" class="btn-paginacao">Próxima Página ▶</button>
                 </div>
             </div>
@@ -74,7 +81,7 @@
                 <div class="par-paginas ativo" id="pagina-1">
                     <div class="pagina-fisica pagina-esquerda">
                         <div class="cabecalho-interna-grupo fundo-c">
-                            <span class="nome-grupo-letra">GRUPO C</span><!--Retirar a tag SPAN-->
+                            <div class="nome-grupo-letra">GRUPO C</div>
                             <div class="paises-linha-mini">
                                 <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
                                 <img src="https://flagcdn.com/w40/ma.png" alt="Marrocos">
@@ -82,13 +89,12 @@
                                 <img src="https://flagcdn.com/w40/gb-sct.png" alt="Escócia">
                             </div>
                         </div>
-                        <div class="grade-cromos-album" id="elenco-grupo-c">
-                            </div>
+                        <div class="grade-cromos-album" id="elenco-grupo-c"></div>
                     </div>
 
                     <div class="pagina-fisica pagina-direita">
                         <div class="cabecalho-interna-grupo fundo-f">
-                            <span class="nome-grupo-letra escuro">GRUPO F</span><!--Retirar a tag SPAN-->
+                            <div class="nome-grupo-letra escuro">GRUPO F</div>
                             <div class="paises-linha-mini">
                                 <img src="https://flagcdn.com/w40/nl.png" alt="Holanda">
                                 <img src="https://flagcdn.com/w40/jp.png" alt="Japão">
@@ -96,15 +102,14 @@
                                 <img src="https://flagcdn.com/w40/tn.png" alt="Tunísia">
                             </div>
                         </div>
-                        <div class="grade-cromos-album" id="elenco-grupo-f">
-                            </div>
+                        <div class="grade-cromos-album" id="elenco-grupo-f"></div>
                     </div>
                 </div>
 
                 <div class="par-paginas" id="pagina-2">
                     <div class="pagina-fisica pagina-esquerda">
                         <div class="cabecalho-interna-grupo fundo-i">
-                            <span class="nome-grupo-letra">GRUPO I</span><!--Retirar a tag SPAN-->
+                            <div class="nome-grupo-letra">GRUPO I</div>
                             <div class="paises-linha-mini">
                                 <img src="https://flagcdn.com/w40/fr.png" alt="França">
                                 <img src="https://flagcdn.com/w40/sn.png" alt="Senegal">
@@ -112,8 +117,7 @@
                                 <img src="https://flagcdn.com/w40/no.png" alt="Noruega">
                             </div>
                         </div>
-                        <div class="grade-cromos-album" id="elenco-grupo-i">
-                            </div>
+                        <div class="grade-cromos-album" id="elenco-grupo-i"></div>
                     </div>
 
                     <div class="pagina-fisica pagina-direita pagina-fundo-especial">
@@ -144,7 +148,7 @@
 
         <div id="modal-cadastro" class="fundo-modal" onclick="fecharCadastroExterno(event)">
             <div class="secao-cadastro">
-                <span class="botao-fechar" onclick="fecharCadastro()">&times;</span><!--Retirar a tag SPAN-->
+                <div class="botao-fechar" onclick="fecharCadastro()">&times;</div>
                 <p class="titulo-formulario">Crie sua Conta de Torcedor</p>
                 <p class="subtitulo-formulario">Receba alertas de jogos, notícias exclusivas e monte seu álbum online!</p>
                 <form class="formulario">

@@ -3,45 +3,82 @@
     <head>
         <meta charset="UTF-8">
         <title>Página Escócia</title>
-        <link rel="stylesheet" href="../CSS/Grupos.css">
+        <link rel="stylesheet" href="../CSS/stylesheet.css">
+        <link rel="stylesheet" href="../CSS/stylesheet_Grupos-Paginas.css">
+        <script src="../JavasScript/script.js" defer></script>
     </head>
     <body>
         <div id="master">
             <div class="topo">
-                <div class="logo">
-                    <img src="../Img/copa-do-mundo-2026-logo4-1024x1024.jpg" alt="Logo Copa 2026">
-                    <p class="titulo-principal">Copa do mundo 2026</p>
-                </div>
-                <div class="links-menu">
-                    <a href="#" id="btn-home">Home</a>
-                    <a href="#" id="btn-locais">Locais ▾</a>
-                    <a href="#" id="btn-grupos">Grupos ▾</a>
-                    <a href="#" id="btn-album">Álbum</a>
-                    <a href="#cadastro" id="btn-cadastro" class="destaque-cadastro">Cadastrar</a>
+            <div class="logo">
+                <img src="../img_taca_logo/copa-do-mundo-2026-logo4-1024x1024.jpg" alt="Logo Copa 2026">
+                <p class="titulo-principal">Copa do mundo 2026</p>
+            </div>  
+            
+            <div class="links-menu">
+                <a href="Pagina-Inicial.html" id="btn-inicio">Início</a>
+                <a href="#" id="btn-locais">Locais ▾</a>
+                <a href="#" id="btn-grupos">Grupos ▾</a>
+                <a href="Album.html" id="btn-album">Álbum</a>
+                <a href="Quiz.html" id="btn-quiz">Quiz</a>
+                <a href="#" id="btn-cadastro" class="destaque-cadastro" onclick="abrirCadastro(event)">Cadastrar</a>
+            </div>
+
+            <div class="dropdown-container">
+                <div id="dropdown-locais" class="submenu-content">
+                    <p class="titulo-secao">Países Sedes</p>
+                    <div class="cards-paises">
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/us.png" alt="Estados Unidos" class="bandeira">
+                            <p>Estados Unidos</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/mx.png" alt="México" class="bandeira">
+                            <p>México</p>
+                        </div>
+                        <div class="pais-card">
+                            <img src="https://flagcdn.com/w160/ca.png" alt="Canadá" class="bandeira">
+                            <p>Canadá</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="dropdown-container">
+                <div id="dropdown-grupos" class="submenu-content">
+                    <p class="titulo-secao">Grupos da Copa</p>
+                    <div class="cards-grupos">
+                        <a href="grupo-c.html" class="link-card-grupo"><div class="grupo-card"><p>Grupo C</p></div></a>
+                        <a href="grupo-f.html" class="link-card-grupo"><div class="grupo-card"><p>Grupo F</p></div></a>
+                        <a href="grupo-i.html" class="link-card-grupo"><div class="grupo-card"><p>Grupo I</p></div></a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div id="modal-cadastro" class="fundo-modal" onclick="fecharCadastroExterno(event)">
+            <div class="secao-cadastro">
+                <div class="botao-fechar" onclick="fecharCadastro()">&times;</div>
+                <p class="titulo-formulario">Crie sua Conta de Torcedor</p>
+                <p class="subtitulo-formulario">Receba alertas de jogos, notícias exclusivas e monte seu álbum online!</p>
+                
+                <form class="formulario">
+                    <div class="campo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                    </div>
                     
-                    <div id="dropdown-locais" class="submenu-content">
-                        <p class="titulo-secao">Países Sedes</p>
-                        <div class="cards-paises">
-                            <div class="pais-card"><p>EUA</p></div>
-                            <div class="pais-card"><p>México</p></div>
-                            <div class="pais-card"><p>Canadá</p></div>
-                        </div>
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Seu melhor e-mail" required>
                     </div>
-
-                    <div id="dropdown-grupos" class="submenu-content">
-                        <p class="titulo-secao">Grupos da Copa</p>
-                        <div class="cards-grupos">
-                            <div class="grupo-card"><p>Grupo C</p></div>
-                            <div class="grupo-card"><p>Grupo F</p></div>
-                            <div class="grupo-card"><p>Grupo I</p></div>
-                        </div>
+                    
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="Crie uma senha segura" required>
                     </div>
-
-                </div>
-            </div> 
+                    
+                    <button type="submit" class="btn-enviar">Finalizar Cadastro</button>
+                </form>
+            </div>
+        </div>
         
             <div class="conteudo-pagina">
                 <div id="Bandeira">
@@ -56,7 +93,12 @@
                 </div>
                 <div id="Jogadores">
                     <p>Jogadores da COPA 2026</p>
-
+                    <ul>
+                        <li>Goleiros: Craig Gordon (Heart of Midlothian), Angus Gunn (Nottingham Forest) e Liam Kelly (Rangers);</li>
+                        <li>Defensores: Grant Hanley (Hibernian), Jack Hendry (Al-Ettifaq), Aaron Hickey (Brentford), Dom Hyam (Wrexham), Soctt McKenna (Dínamo Zagreb), Nathan Patterson (Everton), Anthony Ralston (Celtic), Andy Robertson (Liverpool), John Souttar (Rangers) e Kieran Tierney (Celtic)</li>
+                        <li>Meio-campistas: Ryan Christie (Bournemouth), Findlay Curtis (Kilmarnock), Lewis Fergunson (Bologna), Ben Gannon-Doak (Bournemouth), Billy Gilmour (Napoli), John McGinn (Aston Villa), Kenny McLean (Norwich City) e Scott McTominay (Napoli)</li>
+                        <li>Atacantes: Che Adams (Torino), Lyndon Dykes (Charlton), George Hirst (Ipswich Town), Lawrence Shankland (Heart of Midlothian) e Ross Steward (Southampton).</li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1,0 +1,232 @@
+/* CONFIGURAÇÃO GERAL DO CONTEÚDO DOS GRUPOS */
+.area-grupos {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* CONTAINER DA TABELA INSPIRADA EM ESPORTES */
+.painel-classificacao {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 24px;
+    margin-bottom: 30px;
+}
+
+.cabecalho-tabela-titulo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0c4a6e;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0ea5e9;
+    text-transform: uppercase;
+}
+
+/* ESTRUTURA DA TABELA EM BLOCOS (GRID E FLEX) */
+.estrutura-classificacao {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estrutura das linhas (Grid de 9 colunas) */
+.linha-classificacao {
+    display: grid;
+    grid-template-columns: 2.5fr repeat(8, 1fr);
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: center;
+}
+
+/* Cabeçalho da classificação */
+.linha-classificacao.cabecalho-superior {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 12px 0;
+}
+
+/* Célula de dados padrão */
+.celula-dados {
+    font-size: 15px;
+    color: #334155;
+}
+
+/* Alinhamento da coluna de times */
+.celula-dados.coluna-equipe {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Efeito ao passar o mouse nas linhas de dados */
+.linha-classificacao.dados-jogadores:hover {
+    background-color: #f0fdf4;
+}
+
+/* Coluna de pontos com destaque */
+.celula-dados.pontos-destacados {
+    font-weight: 700;
+    color: #0f172a;
+    background-color: #f1f5f9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Alinhamento do bloco do time (Posição + Bandeira + Nome) */
+.bloco-equipe-flex {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.posicao-numero {
+    font-weight: 700;
+    width: 24px;
+    display: inline-block;
+}
+
+/* Zonas de classificação */
+
+.zona-corte {
+    color: #94a3b8; /* Cinza para eliminados */
+}
+
+.imagem-bandeira-mini {
+    width: 26px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.nome-da-equipe {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Responsividade para telas de celulares */
+@media (max-width: 650px) {
+    .linha-classificacao {
+        grid-template-columns: 3fr repeat(5, 1fr);
+    }
+    /* Oculta colunas de GP, GC e SG em telas pequenas */
+    .coluna-gp, .coluna-gc, .coluna-sg {
+        display: none !important;
+    }
+}
+/* ... códigos antigos que já estavam no arquivo ... */
+
+/* ESTILOS COM O NOVO NOME DA CLASSE */
+.painel-grupo-copa {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 35px;
+    margin: 30px auto;
+    max-width: 1000px;
+    width: 95%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.titulo-cultural {
+    color: #0056b3;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.subtitulo-cultural {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.container-cards-culturais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.card-cultura {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px 20px;
+    width: calc(50% - 13px); 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-cultura:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.bandeira-card {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.nome-pais-card {
+    color: #333;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.card-cultura p {
+    color: #666;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.btn-saber-mais {
+    background-color: #00e5ff;
+    color: #003366;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: inline-block;
+    width: 85%;
+    text-align: center;
+}
+
+.btn-saber-mais:hover {
+    background-color: #00b3cc;
+    color: #fff;
+}
+
+@media (max-width: 580px) {
+    .card-cultura {
+        width: 100%;
+    }
+}
